@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Browser</title>
+    <!-- We link to styles.css for all UI styling -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="browser-ui">
+    <div class="browser-container">
+        <!-- Top bar containing tabs and new tab button -->
+        <header class="tab-bar-container">
+            <div id="tab-bar" class="tab-bar">
+                <!-- Tabs are dynamically added here -->
+            </div>
+            <button id="new-tab-btn" class="nav-button" title="New Tab (Ctrl+T)">
+                <i class="fas fa-plus"></i>
+            </button>
+        </header>
 
+        <!-- Navigation bar with controls and URL input -->
+        <nav class="navigation-bar">
+            <button id="back-btn" class="nav-button" title="Back">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button id="fwd-btn" class="nav-button" title="Forward">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <button id="reload-btn" class="nav-button" title="Reload">
+                <i class="fas fa-redo"></i>
+            </button>
+            <input type="text" id="url-input" placeholder="Enter a URL or search...">
+        </nav>
+
+        <!-- Container for all webview tags -->
+        <main id="webview-container" class="webview-container">
+            <!-- Webviews are dynamically added here -->
+        </main>
+    </div>
+
+    <!-- The main script for browser UI logic -->
+    <script src="renderer.js"></script>
+</body>
+</html>
