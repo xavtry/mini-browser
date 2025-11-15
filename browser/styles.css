@@ -1,1 +1,244 @@
+/* --- Global Styles & Dark Theme --- */
+:root {
+  --bg-dark-primary: #1e1e1e;
+  --bg-dark-secondary: #2d2d2d;
+  --bg-dark-tertiary: #3c3c3c;
+  --text-primary: #d4d4d4;
+  --text-secondary: #8a8a8a;
+  --accent-primary: #007acc;
+  --accent-hover: #009afa;
+  --border-color: #4a4a4a;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --border-radius: 6px;
+}
 
+body {
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* --- 1. Browser UI Styles (index.html) --- */
+
+.browser-ui {
+  background-color: var(--bg-dark-secondary);
+}
+
+.browser-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Tab Bar */
+.tab-bar-container {
+  display: flex;
+  background-color: var(--bg-dark-primary);
+  padding: 6px 6px 0 6px;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab-bar {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
+}
+.tab-bar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--bg-dark-secondary);
+  border: 1px solid var(--border-color);
+  border-bottom: none;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  margin-right: 4px;
+  max-width: 200px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.tab:hover {
+  background-color: var(--bg-dark-tertiary);
+}
+
+.tab.active {
+  background-color: var(--bg-dark-secondary);
+  border-top: 2px solid var(--accent-primary);
+  padding-top: 6px;
+  color: white;
+}
+
+.tab-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  margin-right: 8px;
+}
+
+.tab-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+}
+.tab-close-btn:hover {
+  background-color: var(--bg-dark-tertiary);
+  color: var(--text-primary);
+}
+
+/* Navigation Bar */
+.navigation-bar {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: var(--bg-dark-secondary);
+  gap: 8px;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+.nav-button:hover:not(:disabled) {
+  background-color: var(--bg-dark-tertiary);
+}
+.nav-button:disabled {
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+#new-tab-btn {
+  margin-left: 8px;
+}
+
+#url-input {
+  flex-grow: 1;
+  background-color: var(--bg-dark-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  color: var(--text-primary);
+  padding: 8px 16px;
+  font-size: 14px;
+}
+#url-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--accent-primary);
+}
+
+/* Webview Container */
+.webview-container {
+  flex: 1;
+  position: relative;
+}
+
+.webview {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  visibility: hidden; /* Hide inactive webviews */
+}
+
+.webview.active {
+  visibility: visible;
+}
+
+/* --- 2. Homepage Styles (home.html) --- */
+.home-page {
+  background-color: var(--bg-dark-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.home-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home-logo {
+  font-size: 36px;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-dark-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 0 16px;
+  margin-bottom: 30px;
+}
+.search-container:focus-within {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--accent-primary);
+}
+.search-container i {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+#home-search-input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  padding: 14px;
+  font-size: 16px;
+}
+
+.quick-links-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.quick-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  text-decoration: none;
+  width: 80px;
+  transition: background-color 0.2s;
+}
+.quick-link:hover {
+  background-color: var(--bg-dark-tertiary);
+}
+.quick-link i {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.quick-link span {
+  font-size: 13px;
+}
